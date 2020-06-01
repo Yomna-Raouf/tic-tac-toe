@@ -9,28 +9,40 @@ import * as serviceWorker from './serviceWorker';
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-class Square extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: null,
-    };
-  }
-  render() {
-    return (
+function Square(props) {
+  return (
       <button 
         className="square" 
-        onClick={() => this.setState({value: "X"})}
+        onClick={props.onClick}
         >
-        {this.state.value}
+        {props.value}
       </button>
     );
-  }
 }
-
+ 
 class Board extends React.Component {
+ constructor(props) {
+  super(props);
+  this.state = {
+    squares: Array(9).fill(null),
+    xIsNext: true,
+  };
+ }
+
+ handleClick(i) {
+  const squares = this.state.squares.slice();
+  squares[i] = 'X';
+  this.setState({
+    squares: squares,
+    xIsNext: !this.state.xIsNext,
+  });
+ }
+
   renderSquare(i) {
-    return <Square value={i} />;
+    return <Square 
+      value={this.state.squares[i]} 
+      onClick={() => this.handleClick(i)}
+    />;
   }
 
   render() {
