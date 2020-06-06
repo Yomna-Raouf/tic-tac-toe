@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(#90CAF9, #fff);
 }
 
  
@@ -12,6 +15,13 @@ body {
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
+}
+
+.board {
+ width: 450px;
+  height: 450px;
+  box-shadow: 1px 1px 20px -3px rgba(0,0,0,0.59);
+  margin-right: 100px;
 }
 
 ol, ul {
@@ -29,18 +39,20 @@ ol, ul {
 }
 
 .square {
-  background: #fff;
-  border: 1px solid #999;
+  background: #94c6dd;
+  color: #01579B;
+  border: 2px solid #01579B;
   float: left;
-  font-size: 24px;
+  font-size: 80px;
   font-weight: bold;
   line-height: 34px;
-  height: 34px;
+  height: 150px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 150px;
+  cursor: pointer;
 }
 
 .square:focus {
@@ -54,8 +66,32 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .game-info {
   margin-left: 20px;
+  font-family: monospace, sans-serif;
+  letter-spacing: 1px;
+  font-size: 31px;
+  color: #017f9b;
+  text-shadow: #80d1e3 1px 3px;
 }
+
+.Moves {
+  width: 180px;
+  height: 40px;
+  outline: none;
+  background-color: #94c6dd;
+  color: #fff;
+  border-radius: 50px;
+  font-family: monospace;
+  font-size: 15px;
+  margin-bottom: 15px;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+ 

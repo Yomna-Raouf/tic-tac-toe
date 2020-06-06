@@ -30,7 +30,7 @@ class Board extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='board'>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -91,12 +91,11 @@ class Game extends React.Component {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
-
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="Moves" onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
